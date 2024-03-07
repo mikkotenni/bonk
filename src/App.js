@@ -1,5 +1,7 @@
 import styled from "styled-components";
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+import Home from "./components/Home";
+import Gadget from "./components/Gadget";
 
 const Header = styled.header`
   padding: 12px;
@@ -9,9 +11,6 @@ const Navigation = styled.nav`
   gap: 12px;
 `;
 
-const Home = () => <div>Home Page</div>;
-const About = () => <div>About Page</div>;
-
 function App() {
   return (
     <>
@@ -19,10 +18,10 @@ function App() {
       <Router>
         <Navigation>
           <Link to="/">Home</Link>
-          <Link to="/about">About</Link>
+          <Link to="/gadget">Gadget</Link>
         </Navigation>
         <Routes>
-          <Route path="/about" element={<About />} />
+          <Route path="/gadget" element={<Gadget />} />
           <Route path="/" element={<Home />} />
         </Routes>
       </Router>
