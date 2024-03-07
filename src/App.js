@@ -1,7 +1,6 @@
 import styled from "styled-components";
-import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import Home from "./components/Home";
-import Gadget from "./components/Gadget";
+import { BrowserRouter as Router, Link } from "react-router-dom";
+import AppRoutes from "./AppRoutes";
 
 const Header = styled.header`
   padding: 12px;
@@ -20,11 +19,8 @@ function App() {
           <Link to="/">Home</Link>
           <Link to="/gadget">Gadget</Link>
         </Navigation>
-        <Routes>
-          <Route path="/gadget" element={<Gadget />} />
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </Router>
+        <AppRoutes />
+    </Router>
     </>
   );
 }
