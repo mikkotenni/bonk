@@ -1,3 +1,8 @@
+# Bonk
+
+Bonk project has been created with Create React App. Following the Bonk project specific information you can find
+generic Create React App README content. That will help you to run the app among other relevant scripts.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
