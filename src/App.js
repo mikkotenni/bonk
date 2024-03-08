@@ -10,6 +10,11 @@ const Navigation = styled.nav`
   gap: 12px;
 `;
 
+/**
+ * App component
+ * @description The main application component with header and main navigation.
+ * @returns {JSX.Element}
+ */
 function App() {
   return (
     <>
@@ -20,7 +25,7 @@ function App() {
           <Link to="/gadget">Gadget</Link>
         </Navigation>
         <AppRoutes />
-    </Router>
+      </Router>
     </>
   );
 }
