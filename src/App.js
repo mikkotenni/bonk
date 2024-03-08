@@ -1,14 +1,22 @@
 import styled from "styled-components";
 import { BrowserRouter as Router, Link } from "react-router-dom";
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AppRoutes from "./AppRoutes";
 
 const Header = styled.header`
-  padding: 12px;
+  padding: 12px 12px 0;
+  font-weight: bold;
 `;
 const Navigation = styled.nav`
+  padding: 12px 12px 0;
   display: flex;
   gap: 12px;
+  & > a {
+    color: #4e91fd;
+  }
+`;
+const Main = styled.main`
+  padding: 12px;
 `;
 
 const queryClient = new QueryClient();
@@ -21,13 +29,15 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <QueryClientProvider client={queryClient}>
-      <Header data-testid="app-header">Bonk</Header>
+      <Header data-testid="app-header">🚀 Bonk</Header>
       <Router>
         <Navigation>
           <Link to="/">Home</Link>
           <Link to="/gadgets">Gadgets</Link>
         </Navigation>
-        <AppRoutes />
+        <Main>
+          <AppRoutes />
+        </Main>
       </Router>
     </QueryClientProvider>
   );
