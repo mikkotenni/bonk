@@ -4,10 +4,15 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+const mainNavigationItems = [
+  { id: '1', label: 'Home', path: '/' },
+  { id: '2', label: 'Gadgets', path: '/gadgets' },
+];
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <App mainNavigationItems={mainNavigationItems} />
   </React.StrictMode>
 );
 
