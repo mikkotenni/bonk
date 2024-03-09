@@ -32,14 +32,17 @@ const queryClient = new QueryClient({
  * @description The main application component with header and main navigation.
  * @returns {JSX.Element}
  */
-function App() {
+function App({ mainNavigationItems }) {
   return (
     <QueryClientProvider client={queryClient}>
-      <Header data-testid="app-header">🚀 Bonk</Header>
+      <Header data-testid="header">🚀 Bonk</Header>
       <Router>
         <Navigation>
-          <Link to="/">Home</Link>
-          <Link to="/gadgets">Gadgets</Link>
+          {mainNavigationItems.map(({ id, label, path }) => (
+            <Link key={id} to={path}>
+              {label}
+            </Link>
+          ))}
         </Navigation>
         <Main>
           <AppRoutes />

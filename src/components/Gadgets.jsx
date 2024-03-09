@@ -20,7 +20,7 @@ const Gadget = styled.article`
  * @param {function} onDelete
  * @returns {JSX.Element}
  */
-function GadgetItem({ id, name, onDelete }) {
+export function GadgetItem({ id, name, onDelete }) {
   return (
     <Gadget data-testid={id}>
       <h2>{name}</h2>
@@ -76,7 +76,7 @@ export default function Gadgets() {
       </p>
     );
   return (
-    <div>
+    <div data-testid="gadgets">
       <h1>Gadgets</h1>
       <button type="button" onClick={handleAdd}>
         Add gadget
