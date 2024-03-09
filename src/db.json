@@ -1,3 +1,12 @@
 {
-  "gadgets": [{ "id": 1, "name": "Weird device" }, { "id": 2, "name": "Peculiar piece of equipment" }]
+  "gadgets": [
+    {
+      "id": "2024-03-09T12:05:23.712Z",
+      "name": "Gadget 2024-03-09T12:05:23.712Z"
+    },
+    {
+      "id": "2024-03-09T12:05:24.304Z",
+      "name": "Gadget 2024-03-09T12:05:24.304Z"
+    }
+  ]
 }
