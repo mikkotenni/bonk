@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
-import Home from "./components/Home";
-import Gadgets from "./components/Gadgets";
-import NotFound from "./components/NotFound";
+import Home from "../components/Home";
+import Gadgets from "../components/Gadgets";
+import NotFound from "../components/NotFound";
 
 /**
  * @description Connects the routes and corresponding view components.

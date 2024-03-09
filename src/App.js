@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { BrowserRouter as Router, Link } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import AppRoutes from "./AppRoutes";
+import AppRoutes from "./routes/AppRoutes";
 
 const Header = styled.header`
   padding: 12px 12px 0;
