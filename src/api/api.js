@@ -1,49 +1,57 @@
+const BASE_URL = "http://localhost:3001/gadgets";
+
 /**
- * Fetches gadgets from the server.
- * @returns {Promise<Array>} A promise that resolves to an array of gadgets.
+ * @returns {Promise<Object>} A promise that resolves to server response.
  */
 const fetchGadgets = async () => {
-    const response = await fetch('http://localhost:3001/gadgets');
-    if (!response.ok) {
-      throw new Error('Failed to fetch gadgets.');
-    }
-    return response.json();
-  };
+  const response = await fetch(BASE_URL);
+  if (!response.ok) {
+    throw new Error(
+      `Failed to fetch gadgets: ${response.status} ${response.statusText}`
+    );
+  }
+  return response.json();
+};
 
 /**
- * Adds a gadget to the server.
  * @param {Object} gadget to be added.
  * @example
- * const gadget = { id: '123', name: 'Foo' };
- * @returns {Promise<Object>} A promise that resolves to the added gadget.
+ * const gadget = {
+ *   id: '2024-03-09T12:45:46.158Z',
+ *   name: 'Gadget 2024-03-09T12:45:46.158Z',
+ * };
+ * @returns {Promise<Object>} A promise that resolves to server response.
  */
 const addGadget = async (gadget) => {
-    const response = await fetch('http://localhost:3001/gadgets', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(gadget),
-    });
-    if (!response.ok) {
-      throw new Error('Failed to add gadget.');
-    }
-    return gadget;
-}
+  const response = await fetch(BASE_URL, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(gadget),
+  });
+  if (!response.ok) {
+    throw new Error(
+      `Failed to add gadget: ${response.status} ${response.statusText}`
+    );
+  }
+  return response.json();
+};
 
 /**
- * Deletes a gadget from the server.
  * @param {string} id of the gadget to be deleted.
- * @returns {Promise<string>} A promise that resolves to the id of the deleted gadget.
+ * @returns {Promise<Object>} A promise that resolves to server response.
  */
 const deleteGadget = async (id) => {
-    const response = await fetch(`http://localhost:3001/gadgets/${id}`, {
-      method: 'DELETE',
-    });
-    if (!response.ok) {
-      throw new Error('Failed to delete the gadget.');
-    }
-    return id;
-  };
+  const response = await fetch(`${BASE_URL}/${id}`, {
+    method: "DELETE",
+  });
+  if (!response.ok) {
+    throw new Error(
+      `Failed to delete the gadget: ${response.status} ${response.statusText}`
+    );
+  }
+  return response.json();
+};
 
 export { fetchGadgets, addGadget, deleteGadget };
