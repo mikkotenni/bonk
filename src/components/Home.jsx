@@ -1,8 +1,11 @@
 export default function Home() {
   return (
     <>
-      <h1>The wonders of mystical bonk gadgets</h1>
-      <p>Hi y'all! Please go ahead and have a look at bonk gadgets.</p>
+      <h1>Upkeep your gadgets</h1>
+      <p>
+        Hi y'all! Now what would be any better time to upkeep your gadgets than
+        right now.
+      </p>
     </>
   );
 }

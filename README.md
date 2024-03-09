@@ -3,7 +3,7 @@
 Even if the term bonk does have multiple meanings, this refers to bonk as a imaginary
 apparatus that is seamingly appropriate but really does nothing.
 
-Bonk application allows you to upkeep your own bonk collection.
+Bonk application allows you to upkeep your own bonk gadget collection.
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 

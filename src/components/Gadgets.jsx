@@ -77,9 +77,9 @@ export default function Gadgets() {
     );
   return (
     <div>
-      <h1>Bonk gadgets</h1>
+      <h1>Gadgets</h1>
       <button type="button" onClick={handleAdd}>
-        Add Gadget
+        Add gadget
       </button>
       {data.map(({ id, name }) => (
         <GadgetItem
