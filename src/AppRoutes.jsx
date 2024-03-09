@@ -1,11 +1,9 @@
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/Home";
 import Gadgets from "./components/Gadgets";
-
-const NotFound = () => <p>Oopsy Daisy! 404 Not Found</p>;
+import NotFound from "./components/NotFound";
 
 /**
- * AppRoutes component
  * @description Connects the routes and corresponding view components.
  * @returns {JSX.Element}
  */

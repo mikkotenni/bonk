@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "server": "npx json-server src/db.json --port 3001"
+    "server": "npx json-server src/mockdata/db.json --port 3001"
   },
   "eslintConfig": {
     "extends": [
