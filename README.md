@@ -1,5 +1,12 @@
 # Bonk
 
+Even if the term bonk does have multiple meanings, this refers to bonk as a imaginary
+apparatus that is seamingly appropriate but really does nothing.
+
+Bonk application allows you to upkeep your own bonk collection.
+
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
 ## Packages, libraries and frameworks
 
 ### `TanStack Query`
@@ -27,10 +34,6 @@ based on the application's state or props. Styled-components embraces the compon
 more seamless and powerful integration of styles into JavaScript.
 
 While still maintaining a single `index.css` for the very most global style declarations, most CSS is scoped in components.
-
-## Getting Started with Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
