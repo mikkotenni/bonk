@@ -19,7 +19,13 @@ const Main = styled.main`
   padding: 12px;
 `;
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: true,
+    },
+  },
+});
 
 /**
  * App component
