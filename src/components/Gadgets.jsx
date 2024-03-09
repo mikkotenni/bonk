@@ -14,13 +14,29 @@ const Gadget = styled.article`
 `;
 
 /**
- * Gadgets
+ * @description Render a gadget.
+ * @param {string} id
+ * @param {string} name
+ * @param {function} onDelete
+ * @returns {JSX.Element}
+ */
+function GadgetItem({ id, name, onDelete }) {
+  return (
+    <Gadget data-testid={id}>
+      <h2>{name}</h2>
+      <button type="button" onClick={onDelete}>
+        Delete
+      </button>
+    </Gadget>
+  );
+}
+
+/**
  * @description Fetch gadgets and render. Add and delete gadgets.
  * @returns {JSX.Element}
  */
 export default function Gadgets() {
-  // Server state management.
-  // Access application QueryClient instance in context.
+  // Server state management. Access context QueryClient instance (App.js).
   const queryClient = useQueryClient();
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["gadgets"],
@@ -30,7 +46,7 @@ export default function Gadgets() {
   const addGadgetMutation = useMutation({
     mutationFn: addGadget,
     onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ["gadgets"] })
+      queryClient.invalidateQueries({ queryKey: ["gadgets"] });
     },
   });
   const deleteGadgetMutation = useMutation({
@@ -47,23 +63,31 @@ export default function Gadgets() {
     addGadgetMutation.mutate({ id: d, name: `Gadget ${d}` });
   };
 
-  // Rendering logic. Return specific states early.
+  /**
+   * Rendering logic. Return specific states early. Avoid creating new
+   * inline handler on every render by using `GadgetItem`.
+   */
   if (isLoading) return <p>Still loading gadgets...</p>;
   if (isError)
-    return <p>This went south: {error.message}</p>;
+    return (
+      <p>
+        This went south: {error.message}. Make sure that json-server is running.
+        Please see README for more details.
+      </p>
+    );
   return (
     <div>
       <h1>Bonk gadgets</h1>
       <button type="button" onClick={handleAdd}>
         Add Gadget
       </button>
-      {data.map((g) => (
-        <Gadget key={g.id}>
-          <h2>{g.name}</h2>
-          <button type="button" onClick={() => handleDelete(g.id)}>
-            Delete
-          </button>
-        </Gadget>
+      {data.map(({ id, name }) => (
+        <GadgetItem
+          key={id}
+          id={id}
+          name={name}
+          onDelete={() => handleDelete(id)}
+        />
       ))}
     </div>
   );
