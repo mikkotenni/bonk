@@ -1,19 +1,44 @@
 # Bonk
 
-Bonk project has been created with Create React App. Following the Bonk project specific information you can find
-generic Create React App README content. That will help you to run the app among other relevant scripts.
+## Packages, libraries and frameworks
 
-## `npm run server`
+### `TanStack Query`
 
-Runs `json-server` in port 3001. It is fake REST API.
+TanStack Query, previously known as React Query, is a powerful set of hooks for fetching, caching, synchronizing, and updating
+asynchronous data in React applications. It is a library designed to make handling asynchronous data operations more efficient
+and to reduce the amount of boilerplate code developers need to write for these tasks.
 
-# Getting Started with Create React App
+Instead of locally managed state, this application relies on server state. It suits well the application characteristics
+and steers business logic to server side.
+
+### `json-server`
+
+It is a simple package that allows you to set up a fake REST API with zero coding in a matter of seconds. It's based on a JSON file
+that acts as a database for your mock data. You can use it for prototyping, testing, and quickly bootstrapping ideas without the
+need to set up a complex backend.
+
+Good partner for TanStack Query.
+
+### `styled-components`
+
+Styled-components is a library for React and React Native that allows developers to use component-level styles in their applications
+using tagged template literals. This approach enables writing CSS code in JavaScript files, facilitating the management of styles
+based on the application's state or props. Styled-components embraces the component-based architecture of React, allowing for a
+more seamless and powerful integration of styles into JavaScript.
+
+While still maintaining a single `index.css` for the very most global style declarations, most CSS is scoped in components.
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `npm run server`
+
+Runs fake REST API in port 3001 with mock data.
 
 ### `npm start`
 
