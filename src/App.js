@@ -4,19 +4,27 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import AppRoutes from "./routes/AppRoutes";
 
 const Header = styled.header`
-  padding: 12px 12px 0;
+  font-size: 1.25rem;
+  padding: 1rem;
   font-weight: bold;
+  background-color: #f1efee;
+  border-radius: 0.5rem 0.5rem 0 0;
+  border-bottom: #e9e7e6 1px solid;
 `;
 const Navigation = styled.nav`
-  padding: 12px 12px 0;
+  border-radius: 0 0 0.5rem 0.5rem;
+  background-color: #f1efee;
+  border-top: #e7e5e4 1px solid;
+  padding: 1rem;
   display: flex;
-  gap: 12px;
+  gap: 1rem;
   & > a {
     color: #4e91fd;
+    text-decoration: none;
   }
 `;
 const Main = styled.main`
-  padding: 12px;
+  margin-top: 1rem;
 `;
 
 const queryClient = new QueryClient({

@@ -3,13 +3,29 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { fetchGadgets, deleteGadget, addGadget } from "../api/api";
 import styled from "styled-components";
 
+const Container = styled.div`
+  padding: 1rem;
+  background-color: #f1efee;
+  border-radius: 0.5rem;
+  border-bottom: #e9e7e6 1px solid;
+  & > h1 {
+    margin: 0 0 1rem;
+  }
+`;
+const GadgetsGrid = styled.div`
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+`;
 const Gadget = styled.article`
   padding: 12px;
   margin: 12px 0;
   border: 1px solid #ddd;
   border-radius: 4px;
+  background-color: #e7e5e4;
   & > h2 {
-    margin: 0 0 12px;
+    font-size: 1rem;
+    margin: 0 0 1rem;
   }
 `;
 
@@ -76,19 +92,21 @@ export default function Gadgets() {
       </p>
     );
   return (
-    <div data-testid="gadgets">
+    <Container data-testid="gadgets">
       <h1>Gadgets</h1>
       <button type="button" onClick={handleAdd}>
         Add gadget
       </button>
-      {data.map(({ id, name }) => (
-        <GadgetItem
-          key={id}
-          id={id}
-          name={name}
-          onDelete={() => handleDelete(id)}
-        />
-      ))}
-    </div>
+      <GadgetsGrid>
+        {data.map(({ id, name }) => (
+          <GadgetItem
+            key={id}
+            id={id}
+            name={name}
+            onDelete={() => handleDelete(id)}
+          />
+        ))}
+      </GadgetsGrid>
+    </Container>
   );
 }
