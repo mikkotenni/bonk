@@ -30,6 +30,10 @@ const Gadget = styled.article`
   }
 `;
 
+/**
+ * @description Open a modal dialog.
+ * @param {string} id 
+ */
 function openModal(id) {
   const dialog = document.getElementById(id);
   dialog.showModal();
