@@ -41,7 +41,12 @@ const DropZone = styled.div`
   color: #e7e5e4;
 `;
 
-const RocketAndDropZone = () => {
+/**
+ * @description Render a draggable rocket and its drop zone.
+ * @param {string} describedById is `id` of instructional text.
+ * @returns {JSX.Element}
+ */
+const RocketAndDropZone = (describedById) => {
   const navigate = useNavigate();
   const [isOver, setIsOver] = useState(false);
 
@@ -73,7 +78,8 @@ const RocketAndDropZone = () => {
         draggable
         onDragStart={handleDragStart}
         onKeyDown={handleKeyDown}
-        aria-label="Rocket. Focus on rocket and press enter to go to gadgets page."
+        aria-label="Rocket"
+        aria-describedby={describedById}
         value="🚀"
       />
       <DropZone
@@ -88,12 +94,15 @@ const RocketAndDropZone = () => {
   );
 };
 
+/**
+ * @returns {JSX.Element}
+ */
 export default function Home() {
   return (
     <Container>
-      <RocketAndDropZone />
-      <p>
-        Hi y'all! Drag rocket apparatus to its drop zone or just focus on it and
+      <RocketAndDropZone describedById="instructions" />
+      <p id="instructions">
+        Hi y'all! Drag rocket apparatus to its drop zone or focus on it and
         press enter. This will take you to the gadgets page. All you boomers out
         there (me included) don't you worry, there's also more conventional main
         navigation option available.
