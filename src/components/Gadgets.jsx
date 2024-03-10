@@ -26,8 +26,14 @@ const Gadget = styled.article`
   & > h2 {
     font-size: 1rem;
     margin: 0 0 1rem;
+    font-weight: 400;
   }
 `;
+
+function openModal(id) {
+  const dialog = document.getElementById(id);
+  dialog.showModal();
+}
 
 /**
  * @description Render a gadget.
@@ -37,12 +43,28 @@ const Gadget = styled.article`
  * @returns {JSX.Element}
  */
 export function GadgetItem({ id, name, onDelete }) {
+  const baseId = id.trim().replace(/\s+/g, "-").toLowerCase();
+  const dialogId = `dialog-${baseId}`;
+
   return (
     <Gadget data-testid={id}>
       <h2>{name}</h2>
-      <button type="button" onClick={onDelete}>
+      <button
+        type="button"
+        onClick={() => openModal(dialogId)}
+        aria-label={`See ${name} details`}
+      >
+        See details
+      </button>
+      <button type="button" onClick={onDelete} aria-label={`Delete ${name}`}>
         Delete
       </button>
+      <dialog id={dialogId} aria-labelledby={`${dialogId}-label`}>
+        <form method="dialog">
+          <p id={`${dialogId}-label`}>Gadget ID is {id}</p>
+          <button autoFocus>OK</button>
+        </form>
+      </dialog>
     </Gadget>
   );
 }
@@ -93,7 +115,6 @@ export default function Gadgets() {
     );
   return (
     <Container data-testid="gadgets">
-      <h1>Gadgets</h1>
       <button type="button" onClick={handleAdd}>
         Add gadget
       </button>
