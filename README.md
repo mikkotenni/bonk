@@ -1,7 +1,9 @@
 # Bonk
 
-Even if the term bonk does have multiple meanings, this refers to bonk as a imaginary
-apparatus that is seamingly appropriate but really does nothing.
+Even if the term bonk does have multiple meanings, this application refers to bonk as a imaginary
+apparatus that is seamingly appropriate but really does nothing - it's completely function-free!
+[Bonk Business Inc.](https://en.wikipedia.org/wiki/Bonk_Business) is a buzzing corporation based on
+this idea.
 
 Bonk application allows you to upkeep your own bonk gadget collection.
 
@@ -16,7 +18,7 @@ asynchronous data in React applications. It is a library designed to make handli
 and to reduce the amount of boilerplate code developers need to write for these tasks.
 
 Instead of locally managed state, this application relies on server state. It suits well the application characteristics
-and steers business logic to server side.
+and herds business logic to server side.
 
 ### `json-server`
 
@@ -24,7 +26,8 @@ It is a simple package that allows you to set up a fake REST API with zero codin
 that acts as a database for your mock data. You can use it for prototyping, testing, and quickly bootstrapping ideas without the
 need to set up a complex backend.
 
-Good partner for TanStack Query.
+Good partner for TanStack Query in this application and an excellent way to support independent frontend development
+environment in general.
 
 ### `styled-components`
 
@@ -33,7 +36,7 @@ using tagged template literals. This approach enables writing CSS code in JavaSc
 based on the application's state or props. Styled-components embraces the component-based architecture of React, allowing for a
 more seamless and powerful integration of styles into JavaScript.
 
-While still maintaining a single `index.css` for the very most global style declarations, most CSS is scoped in components.
+While still maintaining a single `index.css` for the very most global style declarations, majority of CSS is scoped in components.
 
 ## Available Scripts
 
