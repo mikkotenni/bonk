@@ -1,10 +1,21 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 const Container = styled.div`
   margin-top: 1rem;
 `;
+const rocketAnimation = keyframes`
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+`
 const Rocket = styled.input`
   font-size: 6rem;
   cursor: grab;
@@ -13,6 +24,7 @@ const Rocket = styled.input`
   left: 11.5rem;
   background-color: transparent;
   border: none;
+  animation: ${rocketAnimation} 3s ease-in-out infinite;
 `;
 const DropZone = styled.div`
   border-width: 0.5rem;
@@ -85,7 +97,7 @@ export default function Home() {
       <p>
         Hi y'all! Drag rocket apparatus to its drop zone or just focus on it and
         press enter. This will take you to the gadgets page. All you boomers out
-        there don't you worry, there's also more conventional main navigation
+        there (me included) don't you worry, there's also more conventional main navigation
         option available.
       </p>
     </Container>
