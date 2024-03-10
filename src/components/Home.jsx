@@ -15,7 +15,7 @@ const rocketAnimation = keyframes`
   75% {
     transform: rotate(5deg);
   }
-`
+`;
 const Rocket = styled.input`
   font-size: 6rem;
   cursor: grab;
@@ -50,16 +50,14 @@ const RocketAndDropZone = () => {
     e.dataTransfer.setData("text/plain", "🚀");
   };
   const handleDrop = (e) => {
-    e.preventDefault();
-    setIsOver(false);
     navigate("/gadgets");
   };
   const handleDragOver = (e) => {
+    // Prevent default action to allow drop.
     e.preventDefault();
     setIsOver(true);
   };
   const handleDragLeave = (e) => {
-    e.preventDefault();
     setIsOver(false);
   };
   const handleKeyDown = (e) => {
@@ -97,8 +95,8 @@ export default function Home() {
       <p>
         Hi y'all! Drag rocket apparatus to its drop zone or just focus on it and
         press enter. This will take you to the gadgets page. All you boomers out
-        there (me included) don't you worry, there's also more conventional main navigation
-        option available.
+        there (me included) don't you worry, there's also more conventional main
+        navigation option available.
       </p>
     </Container>
   );
