@@ -1,16 +1,25 @@
 const BASE_URL = "http://localhost:3001/gadgets";
 
 /**
+ * @param {string} customErrorMessage 
+ * @param {Object} response
+ * @returns {Promise<Object>} A promise that resolves to server response.
+ */
+const handleResponse = (customErrorMessage, response) => {
+  if (!response.ok) {
+    throw new Error(
+      `${customErrorMessage}: ${response.status} ${response.statusText}`
+    );
+  }
+  return response.json();
+}
+
+/**
  * @returns {Promise<Object>} A promise that resolves to server response.
  */
 const fetchGadgets = async () => {
   const response = await fetch(BASE_URL);
-  if (!response.ok) {
-    throw new Error(
-      `Failed to fetch gadgets: ${response.status} ${response.statusText}`
-    );
-  }
-  return response.json();
+  return handleResponse('Failed to fetch gadgets', response);
 };
 
 /**
@@ -30,12 +39,7 @@ const addGadget = async (gadget) => {
     },
     body: JSON.stringify(gadget),
   });
-  if (!response.ok) {
-    throw new Error(
-      `Failed to add gadget: ${response.status} ${response.statusText}`
-    );
-  }
-  return response.json();
+  return handleResponse('Failed to add gadget', response);
 };
 
 /**
@@ -46,12 +50,7 @@ const deleteGadget = async (id) => {
   const response = await fetch(`${BASE_URL}/${id}`, {
     method: "DELETE",
   });
-  if (!response.ok) {
-    throw new Error(
-      `Failed to delete the gadget: ${response.status} ${response.statusText}`
-    );
-  }
-  return response.json();
+  return handleResponse('Failed to delete the gadget', response);
 };
 
 export { fetchGadgets, addGadget, deleteGadget };
