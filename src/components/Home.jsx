@@ -71,12 +71,25 @@ const RocketAndDropZone = (describedById) => {
     }
   };
 
+  /**
+   * Touch drag and drop handlers. To keep it easy, highlight the drop area right
+   * from the start and do the navigation no matter where the touch ends.
+   */
+  const handleTouchMove = (e) => {
+    setIsOver(true);
+  };
+  const handleTouchEnd = (e) => {
+    navigate("/gadgets");
+  };
+
   return (
     <div>
       <Rocket
         type="button"
         draggable
         onDragStart={handleDragStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
         onKeyDown={handleKeyDown}
         aria-label="Rocket"
         aria-describedby={describedById}
